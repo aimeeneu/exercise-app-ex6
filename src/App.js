@@ -128,7 +128,7 @@ function formatTime(milliseconds) {
 }
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState(EXERCISE_SCREEN);
+  const [currentScreen, setCurrentScreen] = useState(MENU_SCREEN);
   const [currentExercise, setCurrentExercise] = useState(exerciseList[3]);
   let screenComponent = undefined;
 
