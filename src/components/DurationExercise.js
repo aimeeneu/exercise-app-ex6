@@ -1,3 +1,4 @@
+import "/Users/aimeen/dig4639-s24-react-aimeeneu/unit2/lab9/src/App.css";
 import StopWatch from './stopWatch';
 
 export default function DurationExercise({exercise, setMenuScreen}) {

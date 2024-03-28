@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import "/Users/aimeen/dig4639-s24-react-aimeeneu/unit2/lab9/src/App.css";
 
 export default function StopWatch() {
   let [running, setRunning] = useState(false);
@@ -26,7 +27,6 @@ export default function StopWatch() {
 
   let mins = (Math.floor((timer / (1000 * 60)) % 60)).toString().padStart(2, "0");
   let secs = (Math.floor((timer / 1000) % 60)).toString().padStart(2, "0");
-  let mills = (timer % 1000).toString().padStart(3, "0");
 
   return (
     <div style={{ width: "100vw", textAlign: "center" }}>
