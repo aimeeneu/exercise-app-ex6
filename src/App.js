@@ -14,7 +14,9 @@ const DURATION_EXERCISE = 'DURATION_EXERCISE';
 const REPETITION_EXERCISE = 'REPETITION_EXERCISE';
 const RUNNING_EXERCISE = 'RUNNING_EXERCISE';
 
-const Home = ({ navigation, exerciseList, buttonClick }) => {
+const Home = ({ navigation, route }) => {
+  const { exerciseList } = route.params;
+
   const data = [
     { key: 'Duration', title: 'Duration Exercise', exercises: exerciseList.filter(exercise => exercise.type === DURATION_EXERCISE) },
     { key: 'Repetition', title: 'Repetition Exercise', exercises: exerciseList.filter(exercise => exercise.type === REPETITION_EXERCISE) },
@@ -23,7 +25,7 @@ const Home = ({ navigation, exerciseList, buttonClick }) => {
   const renderItem = ({ item }) => (
     <Button
       title={item.title}
-      onPress={() => navigation.navigate(item.key)}
+      onPress={() => navigation.navigate(item.key, { exerciseList })}
     />
   );
 
@@ -75,9 +77,7 @@ const App = () => {
     <NavigationContainer>
       {screenComponent}
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home">
-          {(props) => <Home {...props} exerciseList={exerciseList} buttonClick={buttonClick} />}
-        </Stack.Screen>
+        <Stack.Screen name="Home" component={Home} initialParams={{ exerciseList }} />
         <Stack.Screen name="Duration" component={DurationExercise} />
         <Stack.Screen name="Repetition" component={RepetitionExercise} />
         <Stack.Screen name="Running" component={RunningExercise} />
@@ -87,5 +87,3 @@ const App = () => {
 };
 
 export default App;
-
-// I used various resources to help me write this code
