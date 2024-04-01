@@ -1,22 +1,26 @@
-import "/Users/aimeen/dig4639-s24-react-aimeeneu/unit2/lab9/src/App.css";
-import { useState } from "react";
+import React, { useState } from 'react';
+import { Text, View, Button } from 'react-native';
 
-export default function RepetitionExercise({ exercise, setMenuScreen }) {
-    let [count, setCount] = useState(0);
-    return (
-      <div>
-        <p>{exercise.name}</p>
-        <p style={{ fontSize: "5em" }}>{count}</p>
-        <button style={{ fontSize: "1.3em" }} onClick={() => setCount(count => count + 1)}>
-          Increment
-        </button>
-        <button style={{ fontSize: "1.3em" }} onClick={() => setCount(0)}>
-          Reset
-        </button>
-        <br />
-        <button style={{ fontSize: "1em" }} onClick={() => setMenuScreen()}>
-          Return to Menu
-        </button>
-      </div>
-    );
-  }
+const RepetitionExercise = ({ exercise, setMenuScreen }) => {
+  const [count, setCount] = useState(0);
+
+  const increaseCount = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const resetCount = () => {
+    setCount(0);
+  };
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>{exercise.name}</Text>
+      <Text>Count: {count}</Text>
+      <Button title="Increase Count" onPress={increaseCount} />
+      <Button title="Reset Count" onPress={resetCount} />
+      <Button title="Home" onPress={setMenuScreen} />
+    </View>
+  );
+};
+
+export default RepetitionExercise;
