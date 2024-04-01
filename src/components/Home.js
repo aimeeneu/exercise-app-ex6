@@ -1,5 +1,7 @@
 import React from 'react';
-import { FlatList, Button, View, Text } from 'react-native';
+import { FlatList, Button, View } from 'react-native';
+
+console.log('Home component rendered'); // troubleshooting
 
 const Home = ({ navigation }) => {
   const exerciseList = [
@@ -24,7 +26,6 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontSize: 24, marginBottom: 16 }}>Home</Text>
       <FlatList
         data={data}
         renderItem={renderItem}
